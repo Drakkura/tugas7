@@ -119,6 +119,10 @@
                                                                 onclick="applyFormatting('fontsize', '5')">Ukuran Besar</button>
                                                             <button type="button" class="btn btn-secondary"
                                                                 onclick="addLink()">Tambah Tautan</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                onclick="applyFormatting('fontname', 'Arial')">Arial</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                onclick="applyFormatting('backcolor', 'yellow')">Warna latar belakang kuning</button>
                                                         </div>
                                                     </div>
                                                     <form action="/submitFeedback" method="POST"
