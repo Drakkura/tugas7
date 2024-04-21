@@ -217,13 +217,13 @@
       </div>
     </div>
 
-    <div class="footer-bar d-flex">
+    <div class="footer-bar">
       <div class="col-md-6 text-center">
-        <p>&copy; 2023 Sahabat Mahasiswa. All rights reserved.</p>
-      </div>
+        <p class="footer-text">&copy; 2023 Sahabat Mahasiswa. All rights reserved.</p>
+    </div>
       <div class="col-md-6 text-center">
-        <p>Design and Developed by: Sirama-rama Dev</p>
-      </div>
+        <p class="footer-text">Design and Developed by: Sirama-rama Dev</p>
+    </div>
     </div>
     
 </body>
