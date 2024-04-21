@@ -26,7 +26,7 @@
             <li><a href="/sesi">Log In</a></li>
         </ul>
     </div>
-
+//a
     <div class="signup-container">
         <form  method="POST" action="register/register">
             @csrf
