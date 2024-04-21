@@ -120,9 +120,9 @@
                                                             <button type="button" class="btn btn-secondary"
                                                                 onclick="addLink()">Tambah Tautan</button>
                                                             <button type="button" class="btn btn-secondary"
-                                                                onclick="applyFormatting('fontname', 'Arial')">Arial</button>
+                                                                onclick="applyFormatting('fontname', 'Times New Roman')">Times New Roman</button>
                                                             <button type="button" class="btn btn-secondary"
-                                                                onclick="applyFormatting('backcolor', 'yellow')">Warna latar belakang kuning</button>
+                                                                onclick="applyFormatting('backcolor', 'blue')">Warna latar belakang biru</button>
                                                         </div>
                                                     </div>
                                                     <form action="/submitFeedback" method="POST"
