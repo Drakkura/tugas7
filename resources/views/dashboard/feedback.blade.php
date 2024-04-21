@@ -213,6 +213,14 @@
                                 document.getElementById('textarea').innerHTML = '';
 
                                 window.location.href = '/feedback';
+
+                                // Menampilkan alert ketika pengiriman berhasil
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success!',
+                                    text: 'Feedback berhasil dikirim.'
+                                });
+
                             } else {
                                 // No file selected, use JSON
                                 const response = await fetch('/submitFeedback', {
@@ -235,6 +243,14 @@
 
                                 window.location.href = '/feedback';
                             }
+
+                            // Menampilkan alert ketika pengiriman berhasil
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: 'Feedback berhasil dikirim.'
+                            });
+
                         } catch (error) {
                             console.error('Error submitting feedback:', error);
                             // Menampilkan alert ketika pengiriman gagal
