@@ -87,33 +87,6 @@
                 return true;
             }
         }
-        function validateForm() {
-            var firstName = document.forms["myForm"]["firstName"].value;
-            var lastName = document.forms["myForm"]["lastName"].value;
-            var username = document.forms["myForm"]["username"].value;
-            var email = document.forms["myForm"]["email"].value;
-            var password = document.forms["myForm"]["password"].value;
-            var confirmPassword = document.forms["myForm"]["confirmPassword"].value;
-
-            if (firstName == "" || lastName == "" || username == "" || email == "" || password == "" || confirmPassword == "") {
-                alert("Please fill in all required fields");
-                return false;
-            }
-
-            if (password != confirmPassword) {
-                alert("Passwords do not match");
-                return false;
-            }
-
-            if (email != "" + "@student.telkomuniversity.ac.id") {
-                alert("Email does not match with Username or invalid email address ");
-                return false;
-            }
-
-
-            alert("Registration completed");
-            return true;
-        }
         $(document).ready(function () {
             var capitalLetter, symbol, number;
 
