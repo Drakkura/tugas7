@@ -237,6 +237,12 @@
                             }
                         } catch (error) {
                             console.error('Error submitting feedback:', error);
+                            // Menampilkan alert ketika pengiriman gagal
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Terjadi kesalahan saat mengirimkan feedback!'
+                            });
                         }
                     }
                 </script>
