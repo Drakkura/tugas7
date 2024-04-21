@@ -42,6 +42,7 @@
                     <h3 class="mb-3 text-center">Welcome back </h3>
                     <h4 class="text-center">Login</h4>
                     <div class="mb-3">
+                        //baik
                       <label for="email" class="form-label" style="color: white;">Email</label>
                       <input type="email" class="form-control" name="email" value="{{ Session::get('email') }}" placeholder="username@student.telkomuniversity.ac.id">
                     </div>
