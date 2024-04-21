@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
@@ -31,7 +32,8 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse" aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#posts"
+                            data-bs-toggle="collapse" aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
                             My Lists
                         </a>
                         <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -47,7 +49,7 @@
                         </ul>
                     </li>
                     <li class="sidebar-item">
-                    <a href="/feedback" class="sidebar-link">
+                        <a href="/feedback" class="sidebar-link">
                             <i class="fa-regular fa-file pe-2"></i>
                             Feedback
                         </a>
@@ -76,8 +78,8 @@
                 </div>
             </nav>
             <main class="content px-3 py-2">
-                    <!-- Table -->
-                    <!-- resources/views/dashboard/feedback.blade.php -->
+                <!-- Table -->
+                <!-- resources/views/dashboard/feedback.blade.php -->
 
                 <div class="card border-0">
                     <div class="card-header">
@@ -97,35 +99,52 @@
                                             <table class="table">
                                                 <thead>
                                                     <div class="form-group">
-                                                        <div contenteditable="true" id="textarea" oninput="updateCursorPosition()" style="border: 1px solid #ced4da; padding: 8px; min-height: 100px;"></div>
+                                                        <div contenteditable="true" id="textarea"
+                                                            oninput="updateCursorPosition()"
+                                                            style="border: 1px solid #ced4da; padding: 8px; min-height: 100px;">
+                                                        </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <br>
                                                         <div id="formatting-options">
-                                                            <button type="button" class="btn btn-secondary" onclick="applyFormatting('bold')">Bold</button>
-                                                            <button type="button" class="btn btn-secondary" onclick="applyFormatting('italic')">Italic</button>
-                                                            <button type="button" class="btn btn-secondary" onclick="applyFormatting('underline')">Underline</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                onclick="applyFormatting('bold')">Bold</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                onclick="applyFormatting('italic')">Italic</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                onclick="applyFormatting('underline')">Underline</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                onclick="applyFormatting('fontsize', '3')">Ukuran Kecil</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                onclick="applyFormatting('fontsize', '5')">Ukuran Besar</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                onclick="addLink()">Tambah Tautan</button>
                                                         </div>
                                                     </div>
-                                                    <form action="/submitFeedback" method="POST" enctype="multipart/form-data">
+                                                    <form action="/submitFeedback" method="POST"
+                                                        enctype="multipart/form-data">
                                                         <br>
-                                                        <input type="file" class="form-control" id="file-upload" name="feedbackFile">
+                                                        <input type="file" class="form-control" id="file-upload"
+                                                            name="feedbackFile">
                                                         <br>
-                                                        <button style="margin-bottom: 20px;" type="button" class="btn btn-primary" onclick="submitFeedback()">Submit</button>
+                                                        <button style="margin-bottom: 20px;" type="button"
+                                                            class="btn btn-primary"
+                                                            onclick="submitFeedback()">Submit</button>
                                                     </form>
                                                 </thead>
-                                                
+
                                                 <tbody id="feedback-list" class="mt-4">
                                                     <div class="card-header">
                                                         <h5 class="card-title">
                                                             Feedback list
                                                         </h5>
-                                                        @foreach($feedbacks as $feedback)
+                                                        @foreach ($feedbacks as $feedback)
                                                             <tr>
                                                                 <td>
                                                                     <p>{{ $feedback->content }}</p>
-                                                                    @if($feedback->file_path)
-                                                                        <img src="{{ asset('storage/feedback_files/' . $feedback->file_path) }}" alt="Feedback File">
+                                                                    @if ($feedback->file_path)
+                                                                        <img src="{{ asset('storage/feedback_files/' . $feedback->file_path) }}"
+                                                                            alt="Feedback File">
                                                                     @endif
                                                                 </td>
                                                             </tr>
@@ -147,9 +166,21 @@
                         window.currentCursorPosition = window.getSelection().getRangeAt(0);
                     }
 
-                    function applyFormatting(format) {
-                        document.execCommand(format, false, null);
+                    function applyFormatting(format, value = null) {
+                        if (value !== null) {
+                            document.execCommand(format, false, value);
+                        } else {
+                            document.execCommand(format, false, null);
+                        }
                     }
+
+                    function addLink() {
+                        var url = prompt("Masukkan URL:");
+                        if (url) {
+                            document.execCommand('createLink', false, url);
+                        }
+                    }
+
 
                     async function submitFeedback() {
                         var feedbackContent = document.getElementById('textarea').innerText;
@@ -165,7 +196,8 @@
                                 const response = await fetch('/submitFeedback', {
                                     method: 'POST',
                                     headers: {
-                                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                                            'content'),
                                     },
                                     body: formData,
                                 });
@@ -183,9 +215,12 @@
                                     method: 'POST',
                                     headers: {
                                         'Content-Type': 'application/json',
-                                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                                            'content'),
                                     },
-                                    body: JSON.stringify({ content: feedbackContent }),
+                                    body: JSON.stringify({
+                                        content: feedbackContent
+                                    }),
                                 });
 
                                 const newFeedback = await response.json();
@@ -200,15 +235,13 @@
                             console.error('Error submitting feedback:', error);
                         }
                     }
-
                 </script>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        
-    </script>
+    <script></script>
 </body>
+
 </html>
