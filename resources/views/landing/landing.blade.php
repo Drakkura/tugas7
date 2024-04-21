@@ -64,11 +64,12 @@
   <div>
     <h2 class="text-center">Welcome to Our Website</h2>
     <p class="text-center">
-      Kami dengan bangga mempersembahkan layanan terbaru kami 
-      <br>yang akan merubah cara Anda mengelola jadwal kehidupan kuliah. 
-      <br>Sahabat Mahasiswa hadir sebagai teman setia untuk mendukung kesuksesan akademis dan keseimbangan hidup Anda di dunia perkuliahan.
+      Kami dengan bangga mempersembahkan layanan terbaru kami <br>
+      yang akan merubah cara Anda mengelola jadwal kehidupan kuliah. <br>
+      Sahabat Mahasiswa hadir sebagai teman setia untuk mendukung kesuksesan akademis dan keseimbangan hidup Anda di dunia perkuliahan.
     </p>
   </div>
+
 
   <div class="container-fluid" id="text-fitur">
     <h2 class="text-center">We are introducing</h2>
@@ -122,7 +123,10 @@
           <br>Ayo bergabung dengan Sahabat Mahasiswa sekarang!
 
           <br>
-          <a href="/register/register">Sign Up</a>
+          <br>
+          <div class="text-center">
+            <button type="button" class="btn btn-primary">Sign Up</button>
+          </div>
         </h2>
 
       </div>
@@ -164,13 +168,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-    
 
 
     <div class="footer-content">
